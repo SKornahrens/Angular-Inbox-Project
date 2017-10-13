@@ -10,7 +10,7 @@
       </div>
   </div>
   <div class="col-xs-11">
-    <span class="label label-warning" ng-repeat="label in message.labels">{{label}}</span>
+    <span class="label label-warning" ng-repeat="label in message.labels | orderBy">{{label}}</span>
     <a href="#"> {{message.subject}} </a>
   </div>
 </div>

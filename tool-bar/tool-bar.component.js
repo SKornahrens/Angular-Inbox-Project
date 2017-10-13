@@ -10,14 +10,13 @@ angular.
 
       $scope.$root.messages = []
 
-
       function getData() {
         return $scope.$root.messages
       }
 
       $scope.markAsRead = function _markAsRead() {
         getData().map(message => {
-          if (message.selected === true) {
+          if (message.selected) {
           message.read = true
           }
         })
@@ -26,7 +25,7 @@ angular.
 
       $scope.markAsUnread = function _markAsUnread() {
         getData().map(message => {
-          if (message.selected === true) {
+          if (message.selected) {
           message.read = false
           }
         })
@@ -81,7 +80,7 @@ angular.
 
       $scope.deleteMessage = function _deleteMessage() {
         getData().map(message => {
-          if (message.selected === true) {
+          if (message.selected) {
             console.log(getData().indexOf(message))
             var messageToRemove = getData().indexOf(message)
             getData().splice(messageToRemove, 1)
@@ -90,14 +89,30 @@ angular.
         $scope.$root.$applyAsync()
       }
 
-      // $scope.markAsUnread = function _markAsUnread() {
-      //   getData().map(message => {
-      //     if (message.selected === true) {
-      //     message.read = false
-      //     }
-      //   })
-      //   $scope.$root.$applyAsync()
-      // }
+      $scope.removeLabel = function _removeLabel() {
+        getData().map(message => {
+          if (message.selected) {
+            message.labels = message.labels.filter(label => {
+              return (label != $scope.removeLabelSelected)
+            })
+          }
+        })
+      }
+
+      function checkLabelExist(array, evaluation) {
+            return array.some(label => label === evaluation)
+      }
+
+      $scope.addLabel = function _addLabel() {
+        getData().map(message => {
+          if (message.selected) {
+            if (!checkLabelExist(message.labels, $scope.addLabelSelected)) {
+              message.labels.push($scope.addLabelSelected)
+            }
+          }
+        })
+        $scope.$root.$applyAsync()
+      }
 
     }
   })

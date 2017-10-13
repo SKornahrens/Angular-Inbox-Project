@@ -21,14 +21,14 @@
       Mark As Unread
     </button>
 
-    <select class="form-control label-select" ng-disabled="!messageSelected()">
+    <select class="form-control label-select" ng-model="addLabelSelected" ng-change="addLabel()" ng-disabled="!messageSelected()">
       <option>Apply label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>
     </select>
 
-    <select class="form-control label-select" ng-disabled="!messageSelected()">
+    <select class="form-control label-select" ng-model="removeLabelSelected" ng-change="removeLabel()" ng-disabled="!messageSelected()">
       <option>Remove label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
