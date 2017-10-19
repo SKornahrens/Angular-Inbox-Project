@@ -22,14 +22,14 @@
     </button>
 
     <select class="form-control label-select" ng-model="addLabelSelected" ng-change="addLabel()" ng-disabled="!messageSelected()">
-      <option disabled>Apply label</option>
+      <option value="" disabled>Apply label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>
     </select>
 
     <select class="form-control label-select" ng-model="removeLabelSelected" ng-change="removeLabel()" ng-disabled="!messageSelected()">
-      <option disabled>Remove label</option>
+      <option value="" disabled>Remove label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>

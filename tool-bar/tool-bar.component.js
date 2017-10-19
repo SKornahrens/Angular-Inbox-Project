@@ -19,6 +19,8 @@ component('toolBar', {
     .then( () => $scope.$root.getData() )
     }
 
+    // $scope.addLabelSelected = 'Apply label'
+
     $scope.markAsRead = function _markAsRead() {
       var markThisRead = {
         messageIds: [],
