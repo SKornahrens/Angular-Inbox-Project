@@ -5,23 +5,22 @@ angular.
   module('composeForm').
   component('composeForm', {
     templateUrl: 'compose-form/compose-form.template.html',
-    controller: function compseFormController($scope) {
+    controller: function compseFormController($scope, $http) {
 
       $scope.$root.messages = []
-      function getData() {
+      function getCacheData() {
         return $scope.$root.messages
       }
 
       $scope.message = {
-        read: false,
-        starred: false,
-        labels: []
+        subject: $scope.subject,
+        body: $scope.body
       }
 
       $scope.getNewMessage = (messageData) => {
-        $scope.message.id = getData().length +1
-        $scope.$root.messages.push($scope.message)
-        $scope.$root.$applyAsync()
+        console.log($scope.message);
+        $http.post('http://localhost:8082/api/messages/', $scope.message)
+          .then( ()=> $scope.$root.getData() )
       }
 
     }

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 // Define the `messageApp` module
 angular.module('messageApp', [
@@ -6,4 +6,4 @@ angular.module('messageApp', [
     'messageList',
     'toolBar',
     'composeForm'
-]);
+])

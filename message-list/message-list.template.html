@@ -5,7 +5,7 @@
         <input type="checkbox" ng-model="message.selected" ng-change="optionToggled()"/>
       </div>
         <div class="col-xs-2">
-          <i ng-class="{'star fa fa-star': message.starred, 'star fa fa-star-o': !message.starred}" ng-click="message.starred = !message.starred"></i>
+          <i ng-class="{'star fa fa-star': message.starred, 'star fa fa-star-o': !message.starred}" ng-click="changeStarred(message)"></i>
         </div>
       </div>
   </div>

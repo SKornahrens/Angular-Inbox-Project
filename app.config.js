@@ -15,4 +15,4 @@ angular.
             '<message-list></message-list>'
         })
     }
-  ]);
+  ])
